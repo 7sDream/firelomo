@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firelomo options</title>
+    <link rel="stylesheet" href="./options.css">
+</head>
+
+<body>
+    <form class="browser-style" id="firelomo-options-form">
+        <div class="browser-style row">
+            <label for="firelomo-api-url-input">__MSG_optionApiUrlLabel__</label>
+            <input type="url" id="firelomo-api-url-input" placeholder="__MSG_optionApiUrlLabel__"
+                pattern="^https://flomoapp\.com/[0-9a-zA-Z/]+/$" />
+        </div>
+        <div class="row end">
+            <button class="browser-style" id="firelomo-submit-button"
+                type="submit">__MSG_optionSaveButtonTitle__</button>
+        </div>
+    </form>
+    <script src="../../lib/l10n.js"></script>
+    <script src="./options.js" type="module"></script>
+</body>
+
+</html>

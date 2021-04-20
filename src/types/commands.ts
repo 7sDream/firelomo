@@ -3,7 +3,9 @@ export enum Cmd {
 };
 
 interface CommandPayloads {
-    [Cmd.SEND_PANEL_ACTIVE]: null,
+    [Cmd.SEND_PANEL_ACTIVE]: {
+        selection: string,
+    },
 }
 
 export interface Command<T extends keyof CommandPayloads = keyof CommandPayloads> {

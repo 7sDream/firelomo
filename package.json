@@ -5,19 +5,22 @@
   "scripts": {
     "clean": "rimraf dist/",
     "build-ts": "tsc",
-    "browserify": "cd dist/content && ls -1 *.js | xargs -t -I{} browserify {} -p esmify -o browser.{}",
-    "content-script-patch": "cd dist/content && ls -1 browser.*.js | xargs -t sh -c 'echo \"null;\" >> $@' _",
     "copy-files": "copyfiles -u 1 \"src/**/*.html\" \"src/**/*.css\" \"src/**/*.js\" dist/",
-    "build": "npm run clean && npm run build-ts && npm run browserify && npm run content-script-patch && npm run copy-files"
+    "browserify": "ts-node -O '{\"module\": \"commonjs\"}' scripts/browserify.ts",
+    "build": "npm run clean && npm run build-ts && npm run copy-files && npm run browserify"
   },
   "keywords": [],
   "author": "7sDream <firefox@7sdre.am>",
   "license": "BSD-3-Clause",
   "devDependencies": {
+    "@types/browserify": "^12.0.36",
+    "@types/node": "^14.14.41",
+    "brfs": "^2.0.2",
     "browserify": "^17.0.0",
     "copyfiles": "^2.4.1",
     "esmify": "^2.1.1",
     "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
     "web-ext-types": "^3.2.1"
   }

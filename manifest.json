@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "firelomo",
     "version": "1.0.0",
-    "description": "__MSG_extension_description__",
+    "description": "__MSG_extensionDescription__",
     "developer": {
         "name": "7sDream",
         "url": "https://7sdre.am/"
@@ -23,11 +23,17 @@
     "background": {
         "page": "dist/background/background.html"
     },
+    "options_ui": {
+        "page": "dist/pages/options/options.html",
+        "browser_style": true
+    },
     "web_accessible_resources": [
         "resources/images/*.jpg"
     ],
     "permissions": [
+        "https://flomoapp.com/*",
+        "activeTab",
         "menus",
-        "activeTab"
+        "storage"
     ]
 }

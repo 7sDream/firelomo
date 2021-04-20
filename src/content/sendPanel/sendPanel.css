@@ -1,0 +1,94 @@
+.firelomo {
+    display: initial;
+}
+
+.firelomo.firelomo-hidden {
+    display: none !important;
+}
+
+div#firelomo-send-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    box-sizing: content-box;
+    padding: 8px;
+
+    background-color: #FAFAFA;
+    border: 2px solid #E8E8E8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+textarea#firelomo-content {
+    font-family: "DIN-Regular", "PingFang SC", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+}
+
+textarea#firelomo-content:hover,
+textarea#firelomo-content:active,
+textarea#firelomo-content:focus {
+    outline: 0;
+}
+
+textarea#firelomo-content:focus {
+    border: 1px solid #55BB8E;
+}
+
+div#firelomo-button-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    flex-shrink: 0;
+}
+
+button.firelomo {
+    height: 32px;
+    padding: 8px auto;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+button.firelomo {
+    color: #606266;
+    background-color: #FFFFFF;
+    border-color: #DCDFE6;;
+}
+
+button.firelomo:hover {
+    color: #409EFF;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}
+
+button.firelomo:active {
+    color: #3a8ee6;
+    border-color: #3a8ee6;
+}
+
+button.firelomo:disabled {
+    opacity: 40%;
+}
+
+button.firelomo.firelomo-primary {
+    color: #FFFFFF;
+    background-color: #55BB8E;
+    border-color: #55BB8E;
+}
+
+button.firelomo.firelomo-primary:disabled {
+    background-color: #AADDC6;
+    border-color: #AADDC6;
+}

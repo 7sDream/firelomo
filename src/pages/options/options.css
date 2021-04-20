@@ -1,0 +1,41 @@
+form {
+    margin: 8px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+div.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    flex-grow: 1;
+}
+
+div.row.end {
+    justify-content: flex-end;
+}
+
+label, button {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 8px;
+    outline: 0;
+    border-width: 1px;
+}
+
+input:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: red;
+}

@@ -1,17 +1,29 @@
 {
     "extensionDescription": {
-        "message": "简便快速的讲火狐中的内容发送到 flomo",
-        "description": "description of the extension"
+        "message": "简便快速的将火狐中的内容发送到 flomo"
     },
     "menuTitleSendContent": {
-        "message": "发送到 flomo",
-        "description": "menu title of send content to flomo when user selected some text"
+        "message": "发送所选内容到 flomo"
     },
     "menuTitleSendUrl": {
-        "message": "发送页面地址到 flomo",
-        "description": "menu title of send page url to flomo when user has no selection"
+        "message": "发送当前页面到 flomo"
     },
     "windowTitleSendPage": {
         "message": "发送到 flomo"
+    },
+    "emptyApiUrlTips": {
+        "message": "在选项中填写 API URL 后才能使用"
+    },
+    "sendButtonTitle": {
+        "message": "发送"
+    },
+    "cancelButtonTitle": {
+        "message": "取消"
+    },
+    "optionApiUrlLabel": {
+        "message": "API URL"
+    },
+    "optionSaveButtonTitle": {
+        "message": "保存"
     }
 }
