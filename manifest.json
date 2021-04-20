@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "firelomo",
+    "version": "1.0.0",
+    "description": "__MSG_extension_description__",
+    "developer": {
+        "name": "7sDream",
+        "url": "https://7sdre.am/"
+    },
+    "default_locale": "zh-CN",
+    "icons": {
+        "16": "icons/logo-16.png",
+        "32": "icons/logo-32.png",
+        "48": "icons/logo-48.png",
+        "96": "icons/logo-96.png"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "firelomo.firefox@7sdre.am",
+            "strict_min_version": "45.0"
+        }
+    },
+    "background": {
+        "page": "dist/background/background.html"
+    },
+    "web_accessible_resources": [
+        "resources/images/*.jpg"
+    ],
+    "permissions": [
+        "menus",
+        "activeTab"
+    ]
+}

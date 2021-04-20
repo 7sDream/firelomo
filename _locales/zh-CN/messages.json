@@ -1,0 +1,17 @@
+{
+    "extensionDescription": {
+        "message": "简便快速的讲火狐中的内容发送到 flomo",
+        "description": "description of the extension"
+    },
+    "menuTitleSendContent": {
+        "message": "发送到 flomo",
+        "description": "menu title of send content to flomo when user selected some text"
+    },
+    "menuTitleSendUrl": {
+        "message": "发送页面地址到 flomo",
+        "description": "menu title of send page url to flomo when user has no selection"
+    },
+    "windowTitleSendPage": {
+        "message": "发送到 flomo"
+    }
+}

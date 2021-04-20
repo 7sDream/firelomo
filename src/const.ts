@@ -1,0 +1,3 @@
+export enum MENU_ID {
+    SEND_CONTENT = "FIRELOMO_MENU_ID_SEND_CONTENT"
+};
