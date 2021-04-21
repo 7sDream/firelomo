@@ -18,6 +18,14 @@ const show = (element: Element) => {
     element.classList.remove("firelomo-hidden");
 };
 
+const disable = (element: Element) => {
+    element.setAttribute("disabled", "true");
+}
+
+const enable = (element: Element) => {
+    element.removeAttribute("disabled");
+}
+
 const getApiUrl = async () => (await browser.storage.sync.get({ apiUrl: "" })).apiUrl;
 
 const send = async (content: string, apiUrl: string) => {
@@ -62,13 +70,13 @@ const init = () => {
     sendPanelSendButton.textContent = browser.i18n.getMessage("sendButtonTitle");
     sendPanelCancelButton.textContent = browser.i18n.getMessage("cancelButtonTitle");
 
-    const disablePanelButton = (disable: boolean) => {
-        if (disable) {
-            sendPanelSendButton.setAttribute("disabled", "true");
-            sendPanelCancelButton.setAttribute("disabled", "true");
+    const disablePanelButton = (isDisable: boolean) => {
+        if (isDisable) {
+            disable(sendPanelCancelButton);
+            disable(sendPanelSendButton);
         } else {
-            sendPanelSendButton.removeAttribute("disabled");
-            sendPanelCancelButton.removeAttribute("disabled");
+            enable(sendPanelCancelButton);
+            enable(sendPanelSendButton);
         }
     };
 
@@ -110,11 +118,12 @@ const init = () => {
     browser.runtime.onMessage.addListener(async (message: object) => {
         const cmd = message as Command;
         if (assertCmdType(cmd, Cmd.SEND_PANEL_ACTIVE)) {
-            const content = await getApiUrl() === "" ?
-                browser.i18n.getMessage("emptyApiUrlTips") :
-                cmd.content;
-            sendPanelContent.value = content;
+            const hasApiUrl = await getApiUrl() !== "";
+            sendPanelContent.value = hasApiUrl ? cmd.content : browser.i18n.getMessage("emptyApiUrlTips");
             disablePanelButton(false);
+            if (!hasApiUrl) {
+                disable(sendPanelSendButton);
+            }
             hide(sendPanelError);
             show(sendPanel);
         }

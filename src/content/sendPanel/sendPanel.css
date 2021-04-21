@@ -61,7 +61,6 @@ button.firelomo {
     border-radius: 3px;
     border-width: 1px;
     border-style: solid;
-    cursor: pointer;
 
     flex-shrink: 0;
     flex-grow: 0;
@@ -73,13 +72,17 @@ button.firelomo {
     border-color: #DCDFE6;;
 }
 
-button.firelomo:hover {
+button.firelomo:enabled {
+    cursor: pointer;
+}
+
+button.firelomo:hover:enabled {
     color: #409EFF;
     border-color: #c6e2ff;
     background-color: #ecf5ff;
 }
 
-button.firelomo:active {
+button.firelomo:active:enabled{
     color: #3a8ee6;
     border-color: #3a8ee6;
 }
@@ -97,6 +100,7 @@ button.firelomo.firelomo-primary {
 button.firelomo.firelomo-primary:disabled {
     background-color: #AADDC6;
     border-color: #AADDC6;
+    opacity: 100%;
 }
 
 span.firelomo-auto-space {
