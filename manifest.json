@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "firelomo",
+    "name": "__MSG_extensionName__",
     "version": "1.0.0",
     "description": "__MSG_extensionDescription__",
     "developer": {
@@ -22,6 +22,22 @@
     },
     "background": {
         "page": "dist/background/background.html"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "icons/logo-19.png",
+            "38": "icons/logo-38.png"
+        },
+        "default_title": "__MSG_extensionName__"
+    },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+M",
+                "mac": "Command+Shift+M"
+            },
+            "description": "__MSG_browserActionShortcutDescription__"
+        }
     },
     "options_ui": {
         "page": "dist/pages/options/options.html",

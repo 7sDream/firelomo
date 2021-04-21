@@ -1,6 +1,12 @@
 {
+    "extensionName": {
+        "message": "firelomo"
+    },
     "extensionDescription": {
         "message": "简便快速的将火狐中的内容发送到 flomo"
+    },
+    "browserActionShortcutDescription": {
+        "message": "在当前标签页打开空白的发送到 flomo 面板"
     },
     "menuTitleSendToFlomo": {
         "message": "发送到 flomo"
