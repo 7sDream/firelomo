@@ -38,7 +38,8 @@ $ npm run build
 <details>
 <summary>注意事项</summary>
 
-- Import `ts` 文件时需要把后缀改成 `js`，因为编译后只剩 ts，同理 HTML 里引用脚本也要使用 `js` 后缀。- 使用绝对路径引用源码文件时，需要改用 `/dist/` 目录而不是 `src` 目录
+- Import `ts` 文件时需要把后缀改成 `js`，因为编译后只剩 ts，同理 HTML 里引用脚本也要使用 `js` 后缀。
+- 使用绝对路径引用源码文件时，需要改用 `/dist/` 目录而不是 `src` 目录
 - 新增 Background script 需要通过在 `background.html` 增加 `script` 标签完成。[原因](https://discourse.mozilla.org/t/using-es6-modules-in-background-scripts/29911)
 - Content Script 必须放在 `src/content` 或其子文件夹内，这里面的 `ts` 文件在编译后会再使用 `browserify` 编译，之后才能正常注入到页面中。
 
