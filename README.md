@@ -12,6 +12,8 @@
 
 或在 [Release 页面][release-page]下载。
 
+注意：Release 页面的版本（`firelomo.selfhost.firefox@7sdre.am`）和官方商店的版本（`firelomo.firefox@7sdre.am``）有不同的 ID。所以直接安装两个渠道的版本不会覆盖更新，请自行先卸载原有扩展。
+
 ## 功能
 
 ![screen shot of firelomo menu and send panel][screenshot]
