@@ -43,7 +43,7 @@ const getTemplate = async (name: OPTIONS): Promise<string> => {
 
 const templateFill = async (name: OPTIONS, context: Record<string, string>): Promise<string> => {
     const template = await getTemplate(name);
-    return template;
+    return context.selection ?? context.linkUrl ?? context.pageUrl ?? "";
 };
 
 browser.menus.onClicked.addListener(async (info, tab) => {
