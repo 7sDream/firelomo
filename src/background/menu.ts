@@ -2,9 +2,9 @@ import { MENU_ID } from '../const.js';
 import { Cmd, Command } from '../types/commands.js';
 
 browser.menus.create({
-    id: MENU_ID.SEND_CONTENT,
-    contexts: ["selection"],
-    title: browser.i18n.getMessage("menuTitleSendContent"),
+    id: MENU_ID.SEND_TO_FLOMO,
+    contexts: ["selection", "link", "page"],
+    title: browser.i18n.getMessage("menuTitleSendToFlomo"),
 });
 
 const injectSendPanel = async (tab: browser.tabs.Tab) => {
@@ -32,7 +32,7 @@ const openSendPanel = async (tab: browser.tabs.Tab, content: string) => {
 }
 
 browser.menus.onClicked.addListener(async (info, tab) => {
-    if (info.menuItemId === MENU_ID.SEND_CONTENT) {
+    if (info.menuItemId === MENU_ID.SEND_TO_FLOMO) {
         try {
             await injectSendPanel(tab);
         } catch (err) {
@@ -40,8 +40,10 @@ browser.menus.onClicked.addListener(async (info, tab) => {
             return;
         }
 
+        const content = info.linkUrl ?? info.selectionText ?? info.pageUrl ?? "";
+
         try {
-            await openSendPanel(tab, info.selectionText ?? "");
+            await openSendPanel(tab, content);
         } catch (err) {
             console.error(`[firelomo] [background] send [openSendPanel] command failed: ${err.message}`);
             return;

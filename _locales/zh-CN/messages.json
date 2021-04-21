@@ -2,13 +2,7 @@
     "extensionDescription": {
         "message": "简便快速的将火狐中的内容发送到 flomo"
     },
-    "menuTitleSendContent": {
-        "message": "发送所选内容到 flomo"
-    },
-    "menuTitleSendUrl": {
-        "message": "发送当前页面到 flomo"
-    },
-    "windowTitleSendPage": {
+    "menuTitleSendToFlomo": {
         "message": "发送到 flomo"
     },
     "emptyApiUrlTips": {
