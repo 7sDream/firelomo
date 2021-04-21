@@ -14,6 +14,8 @@
 
 ## 功能
 
+![screen shot of firelomo menu and send panel][screenshot]
+
 - 添加 `发送到 flomo` 右键菜单：
   - 选中文字：快速发送选中文字
   - 右键链接：发送链接文本和 URL
@@ -40,7 +42,7 @@ $ npm run build
 
 - Import `ts` 文件时需要把后缀改成 `js`，因为编译后只剩 ts，同理 HTML 里引用脚本也要使用 `js` 后缀。
 - 使用绝对路径引用源码文件时，需要改用 `/dist/` 目录而不是 `src` 目录
-- 新增 Background script 需要通过在 `background.html` 增加 `script` 标签完成。[原因](https://discourse.mozilla.org/t/using-es6-modules-in-background-scripts/29911)
+- 新增 Background script 需要通过在 `background.html` 增加 `script` 标签完成。[原因](https://discourse.mozilla.org/t/using-es6-modules-in-background-scripts/29911)。
 - Content Script 必须放在 `src/content` 或其子文件夹内，这里面的 `ts` 文件在编译后会再使用 `browserify` 编译，之后才能正常注入到页面中。
 
 </details>
@@ -52,5 +54,6 @@ $ npm run build
 [flomo]: https://flomoapp.com/
 [AMO-page]: https://addons.mozilla.org/zh-CN/firefox/addon/firelomo
 [release-page]: https://github.com/7sDream/firelomo/releases/latest
+[screenshot]: https://rikka.7sdre.am/files/623a6b08-2afa-40ca-9897-7720a8aaaf83.png
 [wiki]: https://github.com/7sDream/firelomo/wiki/template
 [license]: https://github.com/7sDream/firelomo/blob/master/LICENSE
