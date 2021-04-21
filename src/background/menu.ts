@@ -1,6 +1,5 @@
 import { MENU_ID, OPTIONS } from '../const.js';
 import * as template from "../lib/template.js";
-import { assertCmdType, Cmd, Command } from '../types/command.js';
 import { ContextExtraPayload, Ctx } from '../types/context.js';
 import * as sendPanel from './sendPanel.js';
 
@@ -64,5 +63,3 @@ browser.menus.onClicked.addListener(async (info, tab) => {
         }
     }
 });
-
-
