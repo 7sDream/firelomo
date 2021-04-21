@@ -14,6 +14,6 @@ export const OPTIONS_DEFAULT_VALUE = {
     [OPTIONS.API_URL]: "",
     [OPTIONS.TIMEOUT]: 3000,
     [OPTIONS.SELECTION_TEMPLATE]: "{selection}\n\n#firelomo",
-    [OPTIONS.PAGE_URL_TEMPLATE]: "{pageUrl}\n\n#firelomo",
-    [OPTIONS.LINK_URL_TEMPLATE]: "{linkText}\n{linkUrl}\n\n#firelomo",
+    [OPTIONS.PAGE_URL_TEMPLATE]: "{pageTitle}\n\n{pageUrl}\n\n#firelomo",
+    [OPTIONS.LINK_URL_TEMPLATE]: "{linkText}\n\n{linkUrl}\n\n#firelomo",
 };
