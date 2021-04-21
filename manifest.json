@@ -7,17 +7,16 @@
         "name": "7sDream",
         "url": "https://github.com/7sDream/firelomo"
     },
-    "default_locale": "zh-CN",
+    "default_locale": "zh_CN",
     "icons": {
-        "16": "icons/logo-16.png",
-        "32": "icons/logo-32.png",
-        "48": "icons/logo-48.png",
-        "96": "icons/logo-96.png"
+        "128": "icons/firelomo-128.png",
+        "96": "icons/firelomo-96.png",
+        "48": "icons/firelomo-48.png"
     },
     "browser_specific_settings": {
         "gecko": {
             "id": "firelomo.firefox@7sdre.am",
-            "strict_min_version": "45.0"
+            "strict_min_version": "57.0"
         }
     },
     "background": {
@@ -25,8 +24,7 @@
     },
     "browser_action": {
         "default_icon": {
-            "19": "icons/logo-19.png",
-            "38": "icons/logo-38.png"
+            "48": "icons/firelomo-48.png"
         },
         "default_title": "__MSG_extensionName__"
     },

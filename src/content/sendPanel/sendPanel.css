@@ -12,6 +12,7 @@ div#firelomo-send-panel {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2147483647;
 
     display: flex;
     flex-flow: column nowrap;
@@ -28,14 +29,12 @@ div#firelomo-send-panel {
 textarea#firelomo-content {
     font-family: "DIN-Regular", "PingFang SC", Helvetica, Arial, sans-serif;
     font-size: 14px;
-
-    flex-grow: 1;
-}
-
-textarea#firelomo-content:hover,
-textarea#firelomo-content:active,
-textarea#firelomo-content:focus {
     outline: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 1px solid #DCDFE6;
+    flex-grow: 1;
 }
 
 textarea#firelomo-content:focus {
@@ -54,7 +53,8 @@ div#firelomo-button-bar {
 
 button.firelomo {
     height: 32px;
-    padding: 8px auto;
+    padding-left: 8px;
+    padding-right: 8px;
     text-align: center;
     font-size: 12px;
     font-weight: 500;

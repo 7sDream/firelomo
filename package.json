@@ -7,7 +7,12 @@
     "build-ts": "tsc",
     "copy-files": "copyfiles -u 1 \"src/**/*.html\" \"src/**/*.css\" \"src/**/*.js\" dist/",
     "browserify": "ts-node -O '{\"module\": \"commonjs\"}' scripts/browserify.ts",
-    "build": "npm run clean && npm run build-ts && npm run copy-files && npm run browserify"
+    "build": "npm run clean && npm run build-ts && npm run copy-files && npm run browserify",
+    "clean-artifacts": "rimraf web-ext-artifacts/",
+    "real-publish": "web-ext build --overwrite-dest --ignore-files src/ scripts/ README.md package-lock.json package.json tsconfig.json",
+    "real-sign": "web-ext sign --ignore-files src/ scripts/ README.md package-lock.json package.json tsconfig.json",
+    "publish": "npm run clean-artifacts && npm run real-publish",
+    "sign": "npm run clean-artifacts && npm run real-sign"
   },
   "keywords": [],
   "author": "7sDream <firefox@7sdre.am>",
@@ -22,6 +27,7 @@
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
+    "web-ext": "^6.1.0",
     "web-ext-types": "^3.2.1"
   }
 }
