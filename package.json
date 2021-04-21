@@ -12,7 +12,8 @@
     "real-publish": "web-ext build --overwrite-dest --ignore-files src/ scripts/ README.md package-lock.json package.json tsconfig.json",
     "real-sign": "web-ext sign --ignore-files src/ scripts/ README.md package-lock.json package.json tsconfig.json",
     "publish": "npm run clean-artifacts && npm run real-publish",
-    "sign": "npm run clean-artifacts && npm run real-sign"
+    "sign": "npm run clean-artifacts && npm run real-sign",
+    "archive": "sh -c 'git archive --format zip -o firelomo-source-$1.zip $1' _"
   },
   "keywords": [],
   "author": "7sDream <firefox@7sdre.am>",
