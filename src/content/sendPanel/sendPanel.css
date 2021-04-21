@@ -1,5 +1,6 @@
 .firelomo {
     display: initial;
+    font-family: sans-serif;
 }
 
 .firelomo.firelomo-hidden {
@@ -28,6 +29,7 @@ textarea#firelomo-content {
     font-family: "DIN-Regular", "PingFang SC", Helvetica, Arial, sans-serif;
     font-size: 14px;
 
+    flex-grow: 1;
 }
 
 textarea#firelomo-content:hover,
@@ -43,10 +45,11 @@ textarea#firelomo-content:focus {
 div#firelomo-button-bar {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
 
     flex-shrink: 0;
+    flex-grow: 0;
 }
 
 button.firelomo {
@@ -59,6 +62,9 @@ button.firelomo {
     border-width: 1px;
     border-style: solid;
     cursor: pointer;
+
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 button.firelomo {
@@ -91,4 +97,8 @@ button.firelomo.firelomo-primary {
 button.firelomo.firelomo-primary:disabled {
     background-color: #AADDC6;
     border-color: #AADDC6;
+}
+
+span.firelomo-auto-space {
+    flex-grow: 1;
 }

@@ -51,9 +51,14 @@ const init = () => {
 
     const sendPanel = document.querySelector("#firelomo-send-panel")!;
     const sendPanelContent = sendPanel.querySelector("#firelomo-content")! as HTMLTextAreaElement;
+    const sendPanelOptionsButton = sendPanel.querySelector("#firelomo-options-button")!;
     const sendPanelSendButton = sendPanel.querySelector("#firelomo-send-button")!;
     const sendPanelCancelButton = sendPanel.querySelector("#firelomo-cancel-button")!;
+    const sendPanelError = sendPanel.querySelector("#firelomo-error")!;
+    const sendPanelErrorSummary = sendPanelError.querySelector("#firelomo-error-summary")!;
+    const sendPanelErrorContent = sendPanelError.querySelector("#firelomo-error-content")!;
 
+    sendPanelOptionsButton.textContent = browser.i18n.getMessage("optionsButtonTitle");
     sendPanelSendButton.textContent = browser.i18n.getMessage("sendButtonTitle");
     sendPanelCancelButton.textContent = browser.i18n.getMessage("cancelButtonTitle");
 
@@ -63,9 +68,23 @@ const init = () => {
             sendPanelCancelButton.setAttribute("disabled", "true");
         } else {
             sendPanelSendButton.removeAttribute("disabled");
-            sendPanelSendButton.removeAttribute("disabled");
+            sendPanelCancelButton.removeAttribute("disabled");
         }
     };
+
+    const showError = (err: Error) => {
+        sendPanelErrorSummary.textContent = browser.i18n.getMessage("sendFailedErrorMessage");
+        sendPanelErrorContent.textContent = err.message;
+        show(sendPanelError);
+    }
+
+    sendPanelOptionsButton.addEventListener("click", async (event) => {
+        const cmd: Command<Cmd.BACKGROUND_OPEN_OPTIONS_PAGE> = {
+            command: Cmd.BACKGROUND_OPEN_OPTIONS_PAGE,
+        }
+        await browser.runtime.sendMessage(cmd);
+        event.preventDefault();
+    });
 
     sendPanelCancelButton.addEventListener("click", (event) => {
         hide(sendPanel);
@@ -74,10 +93,14 @@ const init = () => {
 
     sendPanelSendButton.addEventListener("click", async (event) => {
         disablePanelButton(true);
+        hide(sendPanelError);
         try {
             await send(sendPanelContent.value, await getApiUrl());
         } catch (err) {
             console.error(`[firelomo] [sendPanel] send request failed: ${err.message}`);
+            showError(err);
+            disablePanelButton(false);
+            return;
         }
         sendPanelContent.value = "";
         hide(sendPanel);
@@ -87,13 +110,13 @@ const init = () => {
     browser.runtime.onMessage.addListener(async (message: object) => {
         const cmd = message as Command;
         if (assertCmdType(cmd, Cmd.SEND_PANEL_ACTIVE)) {
-            if (!await getApiUrl()) {
-                alert(browser.i18n.getMessage("emptyApiUrlTips"));
-            } else {
-                sendPanelContent.value = cmd.payload.selection;
-                disablePanelButton(false);
-                show(sendPanel);
-            }
+            const content = await getApiUrl() === "" ?
+                browser.i18n.getMessage("emptyApiUrlTips") :
+                cmd.content;
+            sendPanelContent.value = content;
+            disablePanelButton(false);
+            hide(sendPanelError);
+            show(sendPanel);
         }
     });
 }

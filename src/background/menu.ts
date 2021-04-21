@@ -1,5 +1,5 @@
 import { MENU_ID } from '../const.js';
-import { Cmd, Command } from '../types/commands.js';
+import { assertCmdType, Cmd, Command } from '../types/commands.js';
 
 browser.menus.create({
     id: MENU_ID.SEND_TO_FLOMO,
@@ -23,9 +23,7 @@ const openSendPanel = async (tab: browser.tabs.Tab, content: string) => {
     console.log(`[firelomo] [background] send active panel message to tab ${tab.id}`);
     const cmd: Command<Cmd.SEND_PANEL_ACTIVE> = {
         command: Cmd.SEND_PANEL_ACTIVE,
-        payload: {
-            selection: content,
-        },
+        content,
     };
     await browser.tabs.sendMessage(tab.id!, cmd);
     console.log(`[firelomo] [background] send active panel message to tab ${tab.id} success`);
@@ -52,6 +50,8 @@ browser.menus.onClicked.addListener(async (info, tab) => {
 });
 
 browser.runtime.onMessage.addListener(async (message: object, sender: browser.runtime.MessageSender) => {
-    const command = message as Command;
-
+    const cmd = message as Command;
+    if (assertCmdType(cmd, Cmd.BACKGROUND_OPEN_OPTIONS_PAGE)) {
+        await browser.runtime.openOptionsPage();
+    }
 });

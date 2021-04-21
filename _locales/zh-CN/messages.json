@@ -8,6 +8,9 @@
     "emptyApiUrlTips": {
         "message": "在选项中填写 API URL 后才能使用"
     },
+    "optionsButtonTitle": {
+        "message": "设置"
+    },
     "sendButtonTitle": {
         "message": "发送"
     },
@@ -19,5 +22,8 @@
     },
     "optionSaveButtonTitle": {
         "message": "保存"
+    },
+    "sendFailedErrorMessage": {
+        "message": "发送失败，请检查网络状态或 API URL 是否填写正确。"
     }
 }
