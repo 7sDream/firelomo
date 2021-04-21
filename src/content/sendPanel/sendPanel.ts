@@ -1,5 +1,5 @@
 import { OPTIONS, OPTIONS_DEFAULT_VALUE } from '../../const.js';
-import { assertCmdType, Cmd, Command } from '../../types/commands.js';
+import { assertCmdType, Cmd, Command } from '../../types/command.js';
 
 const checkGuard = (window: Window, guardName: string): boolean => {
     const win = window as any;
