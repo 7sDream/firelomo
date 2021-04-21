@@ -52,5 +52,5 @@ $ npm run build
 [flomo]: https://flomoapp.com/
 [AMO-page]: https://addons.mozilla.org/zh-CN/firefox/addon/firelomo
 [release-page]: https://github.com/7sDream/firelomo/releases/latest
-[wiki]: https://github.com/7sDream/torrent_parser/wiki/template
-[license]: https://github.com/7sDream/rikka/blob/master/LICENSE.md
+[wiki]: https://github.com/7sDream/firelomo/wiki/template
+[license]: https://github.com/7sDream/firelomo/blob/master/LICENSE
