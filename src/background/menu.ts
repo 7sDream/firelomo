@@ -1,4 +1,4 @@
-import { MENU_ID } from '../const.js';
+import { MENU_ID, OPTIONS, OPTIONS_DEFAULT_VALUE } from '../const.js';
 import { assertCmdType, Cmd, Command } from '../types/commands.js';
 
 browser.menus.create({
@@ -29,6 +29,23 @@ const openSendPanel = async (tab: browser.tabs.Tab, content: string) => {
     console.log(`[firelomo] [background] send active panel message to tab ${tab.id} success`);
 }
 
+const getTemplate = async (name: OPTIONS): Promise<string> => {
+    switch (name) {
+        case OPTIONS.SELECTION_TEMPLATE:
+        case OPTIONS.PAGE_URL_TEMPLATE:
+        case OPTIONS.LINK_URL_TEMPLATE: {
+            return (await browser.storage.sync.get({ [name]: OPTIONS_DEFAULT_VALUE[name] }))[name];
+        }
+    }
+    console.error(`[firelomo] [background] unknown template: ${name}`);
+    return "";
+};
+
+const templateFill = async (name: OPTIONS, context: Record<string, string>): Promise<string> => {
+    const template = await getTemplate(name);
+    return template;
+};
+
 browser.menus.onClicked.addListener(async (info, tab) => {
     if (info.menuItemId === MENU_ID.SEND_TO_FLOMO) {
         try {
@@ -38,7 +55,20 @@ browser.menus.onClicked.addListener(async (info, tab) => {
             return;
         }
 
-        const content = info.linkUrl ?? info.selectionText ?? info.pageUrl ?? "";
+        const pageTitle = tab.title ?? "";
+        const pageUrl = tab.url ?? "";
+
+        let content = "";
+        if (info.selectionText) {
+            content = await templateFill(OPTIONS.SELECTION_TEMPLATE, { selection: info.selectionText, pageTitle, pageUrl });
+        } else if (info.linkUrl) {
+            content = await templateFill(OPTIONS.LINK_URL_TEMPLATE, { linkUrl: info.linkUrl, linkText: info.linkText ?? "", pageTitle, pageUrl });
+        } else if (info.pageUrl) {
+            content = await templateFill(OPTIONS.PAGE_URL_TEMPLATE, { pageTitle, pageUrl });
+        } else {
+            console.error("[firelomo] [background] received client event with no usable content");
+            return;
+        }
 
         try {
             await openSendPanel(tab, content);

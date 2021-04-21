@@ -1,3 +1,4 @@
+import { OPTIONS, OPTIONS_DEFAULT_VALUE } from '../../const.js';
 import { assertCmdType, Cmd, Command } from '../../types/commands.js';
 
 const checkGuard = (window: Window, guardName: string): boolean => {
@@ -26,7 +27,9 @@ const enable = (element: Element) => {
     element.removeAttribute("disabled");
 }
 
-const getApiUrl = async () => (await browser.storage.sync.get({ apiUrl: "" })).apiUrl;
+const getApiUrl = async () => (await browser.storage.sync.get({
+    [OPTIONS.API_URL]: OPTIONS_DEFAULT_VALUE[OPTIONS.API_URL]
+})).apiUrl;
 
 const send = async (content: string, apiUrl: string) => {
     let abortController = new AbortController();

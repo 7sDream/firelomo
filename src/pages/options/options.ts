@@ -1,3 +1,5 @@
+import { OPTIONS, OPTIONS_DEFAULT_VALUE } from '../../const.js';
+
 let Form: HTMLFormElement;
 let ApiUrlInput: HTMLInputElement;
 let TimeoutInput: HTMLInputElement;
@@ -6,33 +8,29 @@ let PageUrlTemplateInput: HTMLTextAreaElement;
 let LinkUrlTemplateInput: HTMLTextAreaElement;
 let SubmitButton: HTMLButtonElement;
 
-const DefaultSelectionTemplate = "{selection}\n\n#firelomo";
-const DefaultPageUrlTemplate = "{pageUrl}\n\n#firelomo";
-const DefaultLinkUrlTemplate = "{linkText}\n{linkUrl}\n\n#firelomo";
-
-
 const showCurrentOptions = async () => {
-    const options = await browser.storage.sync.get({
-        apiUrl: "",
-        timeout: 3000,
-        selectionTemplate: DefaultSelectionTemplate,
-        pageUrlTemplate: DefaultPageUrlTemplate,
-        linkUrlTemplate: DefaultLinkUrlTemplate,
-    });
-    ApiUrlInput.value = options.apiUrl;
-    TimeoutInput.value = options.timeout.toString();
-    SelectionTemplateInput.value = options.selectionTemplate;
-    PageUrlTemplateInput.value = options.pageUrlTemplate;
-    LinkUrlTemplateInput.value = options.linkUrlTemplate;
+    const options = await browser.storage.sync.get(OPTIONS_DEFAULT_VALUE);
+    ApiUrlInput.value = options[OPTIONS.API_URL];
+    TimeoutInput.value = options[OPTIONS.TIMEOUT].toString();
+    SelectionTemplateInput.value = options[OPTIONS.SELECTION_TEMPLATE];
+    PageUrlTemplateInput.value = options[OPTIONS.PAGE_URL_TEMPLATE];
+    LinkUrlTemplateInput.value = options[OPTIONS.LINK_URL_TEMPLATE];
 };
 
 const updateOptions = async () => {
     const apiUrl = ApiUrlInput.value;
-    const timeout = parseInt(TimeoutInput.value || "3000", 10);
+    const timeout = parseInt(TimeoutInput.value || OPTIONS_DEFAULT_VALUE[OPTIONS.TIMEOUT].toString(), 10);
     const selectionTemplate = SelectionTemplateInput.value;
     const pageUrlTemplate = PageUrlTemplateInput.value;
     const linkUrlTemplate = LinkUrlTemplateInput.value;
-    await browser.storage.sync.set({ apiUrl, timeout, selectionTemplate, pageUrlTemplate, linkUrlTemplate });
+
+    await browser.storage.sync.set({
+        [OPTIONS.API_URL]: apiUrl,
+        [OPTIONS.TIMEOUT]: timeout,
+        [OPTIONS.SELECTION_TEMPLATE]: selectionTemplate,
+        [OPTIONS.PAGE_URL_TEMPLATE]: pageUrlTemplate,
+        [OPTIONS.LINK_URL_TEMPLATE]: linkUrlTemplate,
+    });
 };
 
 const updateFormSubmitButtonState = () => {
