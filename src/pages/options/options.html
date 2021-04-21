@@ -11,14 +11,32 @@
 
 <body>
     <form class="browser-style" id="firelomo-options-form">
+        <hr class="hr-text" data-content="__MSG_optionsHRApiSetting__">
         <div class="browser-style row">
-            <label for="firelomo-api-url-input">__MSG_optionApiUrlLabel__</label>
-            <input type="url" id="firelomo-api-url-input" placeholder="__MSG_optionApiUrlLabel__"
+            <label for="firelomo-api-url-input">__MSG_optionsApiUrlLabel__</label>
+            <input type="url" id="firelomo-api-url-input" placeholder="__MSG_optionsApiUrlLabel__"
                 pattern="^https://flomoapp\.com/[0-9a-zA-Z/]+/$" />
+        </div>
+        <div class="browser-style row">
+            <label for="firelomo-timout-input">__MSG_optionsTimeoutLabel__</label>
+            <input type="number" id="firelomo-timeout-input" min="1000" max="10000" />
+        </div>
+        <hr class="hr-text" data-content="__MSG_optionsHRContentTemplateLabel__">
+        <div class="browser-style row">
+            <label for="firelomo-selection-template-input">__MSG_optionsSelectionTemplateLabel__</label>
+            <textarea id="firelomo-selection-template-input"></textarea>
+        </div>
+        <div class="browser-style row">
+            <label for="firelomo-page-url-template-input">__MSG_optionsPageUrlTemplateLabel__</label>
+            <textarea id="firelomo-page-url-template-input"></textarea>
+        </div>
+        <div class="browser-style row">
+            <label for="firelomo-link-url-template-input">__MSG_optionsLinkUrlTemplateLabel__</label>
+            <textarea id="firelomo-link-url-template-input"></textarea>
         </div>
         <div class="row end">
             <button class="browser-style" id="firelomo-submit-button"
-                type="submit">__MSG_optionSaveButtonTitle__</button>
+                type="submit">__MSG_optionsSaveButtonTitle__</button>
         </div>
     </form>
     <script src="../../lib/l10n.js"></script>

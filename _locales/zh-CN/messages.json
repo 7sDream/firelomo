@@ -17,10 +17,28 @@
     "cancelButtonTitle": {
         "message": "取消"
     },
-    "optionApiUrlLabel": {
+    "optionsHRApiSetting": {
+        "message": "API 设置"
+    },
+    "optionsApiUrlLabel": {
         "message": "API URL"
     },
-    "optionSaveButtonTitle": {
+    "optionsTimeoutLabel": {
+        "message": "超时时间"
+    },
+    "optionsHRContentTemplateLabel": {
+        "message": "内容模板"
+    },
+    "optionsSelectionTemplateLabel": {
+        "message": "发送选中文字时"
+    },
+    "optionsPageUrlTemplateLabel": {
+        "message": "发送页面链接时"
+    },
+    "optionsLinkUrlTemplateLabel": {
+        "message": "发送选中链接时"
+    },
+    "optionsSaveButtonTitle": {
         "message": "保存"
     },
     "sendFailedErrorMessage": {
