@@ -5,7 +5,7 @@
     "description": "__MSG_extensionDescription__",
     "developer": {
         "name": "7sDream",
-        "url": "https://7sdre.am/"
+        "url": "https://github.com/7sDream/firelomo"
     },
     "default_locale": "zh-CN",
     "icons": {
@@ -27,9 +27,6 @@
         "page": "dist/pages/options/options.html",
         "browser_style": true
     },
-    "web_accessible_resources": [
-        "resources/images/*.jpg"
-    ],
     "permissions": [
         "https://flomoapp.com/*",
         "activeTab",
