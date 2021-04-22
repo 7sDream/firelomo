@@ -35,23 +35,47 @@
 - 超时时间：发送请求的超时时间，单位毫秒
 - 内容模板：参见 [Wiki][wiki]
 
-## 开发
+## 欢迎共建
+
+### 开发
 
 ```bash
 $ npm install -D
-# 本地编译调试
+# 编译
 $ npm run build
 ```
 
-<details>
-<summary>注意事项</summary>
+使用`火狐扩展页面-齿轮-调试附加组件-临时载入附加组件`，打开 `manifest.json` 文件来测试。
 
-- Import `ts` 文件时需要把后缀改成 `js`，因为编译后只剩 ts，同理 HTML 里引用脚本也要使用 `js` 后缀。
+也可以使用 `npx web-ext run`。
+
+<details>
+<summary>开发注意事项</summary>
+
+- Import `ts` 文件时需要把后缀改成 `js`，因为编译后只剩 `js`，同理 HTML 里引用脚本也要使用 `js` 后缀。
 - 使用绝对路径引用源码文件时，需要改用 `/dist/` 目录而不是 `src` 目录
 - 新增 Background script 需要通过在 `background.html` 增加 `script` 标签完成。[原因](https://discourse.mozilla.org/t/using-es6-modules-in-background-scripts/29911)。
 - Content Script 必须放在 `src/content` 或其子文件夹内，这里面的 `ts` 文件在编译后会再使用 `browserify` 编译，之后才能正常注入到页面中。
 
 </details>
+
+### 设计相关
+
+#### Logo
+
+不会画画，现在这个 Logo 我是基本瞎画的，这拙劣的画工，蚌埠住了。
+
+如果有设计师/画师/会画画的人能帮忙画个 Logo，或者贡献创意，请直接开 Issue 吧。
+
+#### UI/UX
+
+同上，不会设计 UI，当然现在也没啥 UI，不过如果你愿意设计/讨论一下也很欢迎，请直接开 Issue 吧。
+
+#### UI 实现
+
+再次同上，不是前端，不会 HTML 和 CSS，临时学的。
+
+如果你有能力且愿意做点优化，直接提 PR 就好。
 
 ## License
 
