@@ -8,7 +8,7 @@
 
 ## 安装
 
-从[火狐官方扩展商店（暂未上架）][AMO-page]安装。
+从[火狐官方扩展商店][AMO-page]安装。
 
 或在 [Release 页面][release-page]下载。
 
