@@ -26,10 +26,14 @@
 - 单击工具栏图标：
   - 打开一个空白的发送框，方便随时写点东西
   - 默认快捷键 `Ctrl(Command)+Shift+M`
-- 设置选项
-  - API URL：登录 flomo 网页版后在 `选项 - API 及第三方工具` 页面获取
-  - 超时时间：发送请求的超时时间，单位毫秒
-  - 内容模板：参见 [Wiki][wiki]
+
+## 选项
+
+![options]
+
+- API URL：登录 flomo 网页版后在 `选项 - API 及第三方工具` 页面获取
+- 超时时间：发送请求的超时时间，单位毫秒
+- 内容模板：参见 [Wiki][wiki]
 
 ## 开发
 
@@ -57,5 +61,6 @@ $ npm run build
 [AMO-page]: https://addons.mozilla.org/zh-CN/firefox/addon/firelomo
 [release-page]: https://github.com/7sDream/firelomo/releases/latest
 [screenshot]: https://rikka.7sdre.am/files/623a6b08-2afa-40ca-9897-7720a8aaaf83.png
+[options]: https://rikka.7sdre.am/files/35286ca5-e8fd-4516-b74e-1a7ab156ef00.png
 [wiki]: https://github.com/7sDream/firelomo/wiki/template
 [license]: https://github.com/7sDream/firelomo/blob/master/LICENSE
