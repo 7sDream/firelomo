@@ -128,7 +128,6 @@ const init = () => {
 
     sendPanel.addEventListener("keydown", async (event) => {
         const ev = event as KeyboardEvent;
-        console.log(`OS: ${JSON.stringify(OS)}`);
         if (ev.key === "Escape") {
             hide(sendPanel);
             ev.preventDefault();
