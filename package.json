@@ -1,6 +1,6 @@
 {
   "name": "firelomo",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Quickly send page content to Flomo",
   "scripts": {
     "clean": "rimraf dist/",
