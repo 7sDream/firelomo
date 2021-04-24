@@ -1,6 +1,8 @@
 import { OPTIONS, OPTIONS_DEFAULT_VALUE } from '../../const.js';
 import { assertCmdType, Cmd, Command } from '../../types/command.js';
 
+let OS = "";
+
 const checkGuard = (window: Window, guardName: string): boolean => {
     const win = window as any;
     const value = win[guardName];
@@ -102,7 +104,7 @@ const init = () => {
         event.preventDefault();
     });
 
-    sendPanelSendButton.addEventListener("click", async (event) => {
+    const confirm = async () => {
         disablePanelButton(true);
         hide(sendPanelError);
         try {
@@ -115,12 +117,29 @@ const init = () => {
         }
         sendPanelContent.value = "";
         hide(sendPanel);
+    }
+
+    sendPanelSendButton.addEventListener("click", async (event) => {
+        await confirm();
         event.preventDefault();
+    });
+
+    sendPanel.addEventListener("keydown", async (event) => {
+        const ev = event as KeyboardEvent;
+        console.log(`OS: ${JSON.stringify(OS)}`);
+        if (ev.key === "Escape") {
+            hide(sendPanel);
+            ev.preventDefault();
+        } else if (ev.key === "Enter" && ((OS === "mac" && ev.metaKey) || ev.ctrlKey)) {
+            await confirm();
+            ev.preventDefault();
+        }
     });
 
     browser.runtime.onMessage.addListener(async (message: object) => {
         const cmd = message as Command;
         if (assertCmdType(cmd, Cmd.SEND_PANEL_ACTIVE)) {
+            OS = cmd.os;
             const hasApiUrl = await getApiUrl() !== "";
             sendPanelContent.value = hasApiUrl ? cmd.content : browser.i18n.getMessage("emptyApiUrlTips");
             disablePanelButton(false);

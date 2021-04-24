@@ -13,6 +13,7 @@ export const open = async (tab: browser.tabs.Tab, content: string) => {
     const cmd: Command<Cmd.SEND_PANEL_ACTIVE> = {
         command: Cmd.SEND_PANEL_ACTIVE,
         content,
+        os: (await browser.runtime.getPlatformInfo()).os,
     };
     await browser.tabs.sendMessage(tab.id!, cmd);
 }

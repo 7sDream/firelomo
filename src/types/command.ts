@@ -6,6 +6,7 @@ export enum Cmd {
 interface CommandPayloads {
     [Cmd.SEND_PANEL_ACTIVE]: {
         content: string,
+        os: browser.runtime.PlatformOs,
     },
     [Cmd.BACKGROUND_OPEN_OPTIONS_PAGE]: {},
 }
