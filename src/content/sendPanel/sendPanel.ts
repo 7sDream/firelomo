@@ -129,6 +129,7 @@ const init = () => {
             }
             hide(sendPanelError);
             show(sendPanel);
+            sendPanelContent.focus();
         }
     });
 }
