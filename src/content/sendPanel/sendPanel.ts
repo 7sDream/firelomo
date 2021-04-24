@@ -59,8 +59,10 @@ const init = () => {
         return;
     }
 
+    const div = document.createElement("div");
     // this will translated to file content directly in browserify compile step
-    document.body.innerHTML += require('fs').readFileSync(__dirname + "/sendPanel.html", 'utf8');
+    div.innerHTML = require('fs').readFileSync(__dirname + "/sendPanel.html", 'utf8');
+    document.body.appendChild(div);
 
     const sendPanel = document.querySelector("#firelomo-send-panel")!;
     const sendPanelContent = sendPanel.querySelector("#firelomo-content")! as HTMLTextAreaElement;
